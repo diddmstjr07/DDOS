@@ -1,9 +1,9 @@
 import subprocess
 import re
 
-def signal_get(URL):
+def signal_get(URL, PORT):
     if re.match(r'^https://', URL):
-        result = subprocess.run(["curl", "-X", "GET", URL], capture_output=True, text=True)
+        result = subprocess.run(["curl", "-X", "GET", URL + f":{PORT}"], capture_output=True, text=True)
         result = result.stdout
         result = re.sub(r'\s+$', '', result)
         if result == '':
@@ -12,7 +12,7 @@ def signal_get(URL):
         else:
             return result
     else:
-        URL = "https://" + URL
+        URL = "https://" + URL + f":{PORT}"
         result = subprocess.run(["curl", "-X", "GET", URL], capture_output=True, text=True)
         result = result.stdout
         result = re.sub(r'\s+$', '', result)
