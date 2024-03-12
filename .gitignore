@@ -3,4 +3,5 @@ include/
 lib/
 share/
 socket_analyze/
+etc/
 pyvenv.cfg
